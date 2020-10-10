@@ -1,0 +1,332 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/opensans/opensans-regular.ttf');
+  src: url('../fonts/opensans/opensans-regular.woff2') format('woff2');
+  src: url('../fonts/opensans/opensans-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
+  font-family: 'Open Sans', sans-serif;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  word-break: break-word;
+}
+body {
+  font-size: 62.5%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+p {
+  margin: 10px 0;
+}
+.collapsible {
+  position: relative;
+  color: #ffffff;
+  background-color: #0076b6;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.collapsible:after {
+  position: absolute;
+  content: '+';
+  top: 5px;
+  right: 20px;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+.collapsible.open:after {
+  content: 'x';
+}
+.collapsible.open + .collapsible-content {
+  max-height: none;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed #0076b6;
+}
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.line-break {
+  display: block;
+  width: 100%;
+  height: 1.2rem;
+}
+.highlight {
+  background-color: rgba(255, 243, 141, 0.4);
+}
+#page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+#page h1 {
+  color: #000000;
+  font-size: 1.8rem;
+  padding: 0 0 10px 0;
+  margin: 40px 0;
+  border-bottom: 1px solid #212529;
+}
+#page header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  background-color: #0076b6;
+  color: #ffffff;
+}
+#page main {
+  flex: 1;
+  padding: 20px;
+}
+#page main a {
+  color: #0076b6;
+}
+#page main a:hover {
+  color: #005f92;
+}
+#page main h2,
+#page main h3,
+#page main h4,
+#page main h5,
+#page main h6 {
+  display: inline-block;
+  font-size: 1.8rem;
+}
+#page main h2 a,
+#page main h3 a,
+#page main h4 a,
+#page main h5 a,
+#page main h6 a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#page main ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: custom-counter;
+}
+#page main ol > li {
+  counter-increment: custom-counter;
+  margin: 2rem 0;
+}
+#page main ol > li:before {
+  content: counter(custom-counter);
+  margin-right: 0.5rem;
+  color: #212529;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1rem;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+#page main ol > li:nth-child(-n + 9):before {
+  content: '0' counter(custom-counter);
+}
+#page main ol ol li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol ol li p {
+  display: inline-block;
+}
+#page main ol ol li:before {
+  font-size: 1.2rem;
+}
+#page main ol ul li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol ul li p {
+  display: inline-block;
+}
+#page main ol ul li:before {
+  content: '\2299';
+  font-size: 1.2rem;
+}
+#page main ol.smaller li {
+  margin: 0.5rem 0 0.5rem 0;
+}
+#page main ol.smaller li p {
+  display: inline-block;
+}
+#page main ol.smaller li:before {
+  font-size: 1.2rem;
+  margin-top: -6px;
+}
+#page main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#page main ul > li {
+  margin: 2rem 0;
+}
+#page main ul > li:before {
+  content: '\27A4';
+  display: inline-block;
+  margin-top: -12px;
+  margin-right: 0.5rem;
+  color: #212529;
+  font-weight: bold;
+  font-size: 2.4rem;
+  line-height: 0;
+  vertical-align: middle;
+}
+#page main ul ul li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul ul li p {
+  display: inline-block;
+}
+#page main ul ul li:before {
+  content: '\2299';
+  font-size: 1.2rem;
+}
+#page main ul ol li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul ol li p {
+  display: inline-block;
+}
+#page main ul ol li:before {
+  font-size: 1.2rem;
+}
+#page main ul.smaller li {
+  margin: 0.5rem 0 0.5rem 0;
+}
+#page main ul.smaller li p {
+  display: inline-block;
+}
+#page main ul.smaller li:before {
+  font-size: 1.2rem;
+  margin-top: -6px;
+}
+#page main .rubric {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #ebffcc;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+#page main .rubric h2,
+#page main .rubric h3,
+#page main .rubric h4,
+#page main .rubric h5,
+#page main .rubric h6 {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.38rem;
+  text-transform: capitalize;
+  color: #0e72a9;
+}
+#page main .callout {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #fffbdb;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+#page main .callout h2,
+#page main .callout h3,
+#page main .callout h4,
+#page main .callout h5,
+#page main .callout h6 {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.38rem;
+  text-transform: capitalize;
+  color: #212529;
+}
+#page footer {
+  font-size: 1rem;
+  text-align: center;
+  padding: 40px 20px;
+  color: #ffffff;
+  background-color: #212529;
+}
+#page footer a {
+  display: inline;
+  color: #1292d8;
+}
+#page footer a:hover {
+  color: #0f7cb7;
+}
+#page footer .a-img {
+  display: inline-block;
+}
+#page footer .byui-img {
+  height: 70px;
+  width: auto;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid #65717e;
+}
+#page footer .cc-img {
+  height: 70px;
+  width: auto;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid #65717e;
+}
+@media (min-width: 768px) {
+  #page header {
+    flex-direction: row;
+  }
+  #page header #course-title {
+    flex: 1;
+    padding-right: 20px;
+    text-align: left;
+  }
+  #page header #course-code {
+    text-align: right;
+  }
+  #page main .rubric {
+    margin: 20px 30px;
+  }
+  #page main .callout {
+    margin: 20px 30px;
+  }
+  #page footer .byui-img {
+    margin: 0 40px 0 0;
+  }
+  #page footer .cc-img {
+    margin: 0 0 0 40px;
+  }
+}
+@media (min-width: 1200px) {
+  #page {
+    border-left: 1px solid #212529;
+    border-right: 1px solid #212529;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  }
+}
