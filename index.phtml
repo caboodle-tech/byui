@@ -1,0 +1,256 @@
+<?php
+
+$title       = 'BYUI CIT Course Material';
+$keywords    = 'BYUI, CIT, Course Material, Homework, Assignments, Directroy';
+$description = '';
+
+?>
+{{HEAD}}
+<body>
+    <div id="page">
+        <header>
+            <div id="course-title">
+                Computer Information Technology
+            </div>
+            <div id="course-code">
+                BYUI
+            </div>
+        </header>
+        <main>
+            <h1>Main Directory</h1>
+            <p>
+                This is the main website for Brother Keers' course materials. You can find the source code for this website in this GitHub repository. If you are looking for a specific course they are listed below. If you are looking for a specific course and it is missing from this list, you may be searching for a course taught by a different professor or another department and Brigham Young University Idaho. You will need to reach out to your professor for assistance.
+            </p>
+            <h2>Courses</h2>
+            <ul>
+                <li>
+                    <h2><a href="wdd-130/">Web Fundamentals (WDD 130)</a></h2>
+                    <p>This course introduces students to the Word Wide Web and to careers in web design and development. The course is hand on with students participating in simple web designs and programming. Students are also introduced to version control tools using git and GitHub, wire framing, and other design related tools. It is anticipated that students who complete this course will understand the fields of wed design and development, have an understanding of the various industry roles, and have a good idea if they want to pursue this degree as a major.</p>
+                </li>
+            </ul>
+            <h2>Style Guide</h2>
+            <p>This website has specific styles for the following elements:</p>
+            <div class="callout">
+                <h2>Callouts:</h2>
+                <p>
+                    Callouts are used to call attention to some important information. This should be used when instructors or students need to pay careful attention to something. Below is the HTML code for this element:
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="callout"&gt;
+    &lt;h2&gt;Title Here:&lt;/h2&gt;
+    &lt;p&gt;
+        Content here.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      
+            <div class="rubric">
+                <h4><strong>Rubric:</strong></h4>
+                <p>
+                    A rubric specific callout is used to highlight the assignments grading requirements and is usually placed at the end of an assignment. These style callouts can be used as part of assignment steps to highlight specific criteria a student or instructor should look for at that step. Below is the HTML code for this element:
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="rubric"&gt;
+    &lt;h2&gt;Title Here:&lt;/h2&gt;
+    &lt;p&gt;
+        Content here.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      <p>
+                Assignments should be organized inside an <code>ol</code> (ordered list). Below is an example of what this looks like followed by the HTML code for this element. Please note that this website runs a JavaScript function to automatically create an anchor (id) for each step if you used the correct HTML format. These anchors are nice when communicating with students and instructors because you can provide a direct link to the content in question. These links can change if you update the amount of steps in an assignment so they should only be used short term.
+            </p>
+            <ol>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+            </ol>
+<pre class="lang-html">
+<code class="lang-html">&lt;ol&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</pre>      <p>
+                You can also use traditional <code>ul<code> (unordered lists). The following is an example of an unordered list followed by the HTML to create this element.
+            </p>
+            <ul>
+                <li>
+                    <h2>Item 1</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+                <li>
+                    <h2>Item 2</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+                <li>
+                    <h2>Item 3</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+            </ul>
+<pre class="lang-html">
+<code class="lang-html">&lt;ul&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 1&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 2&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 3&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+            <p>
+                And of course you can nest <code>ul</code> and <code>ol</code> inside one another in any combination. Below is an example of nesting and the HTML to make this element:
+            </p>
+            <ol>
+                <li>
+                    <h2>Step 1</h2>
+                    <p>
+                        This step has an unordered list of instructions:
+                        <ul>
+                            <li>
+                                <p>
+                                    Do this...
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    ...and do this.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <h2>Step 2</h2>
+                    <p>
+                        This step has an ordered list of instructions:
+                        <ol>
+                            <li>
+                                <p>
+                                    Do this first.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Do this second.
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </li>
+            </ol>
+<pre class="lang-html">
+<code class="lang-html">&lt;ol&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step 1&lt;/h2&gt;
+        &lt;p&gt;
+            This step has an unordered list of instructions:
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this...
+                    &lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        ...and do this.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step 2&lt;/h2&gt;
+        &lt;p&gt;
+            This step has an ordered list of instructions:
+            &lt;ol&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this first.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this second.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</code>
+</pre>
+        <p>
+            You can also have sections of collapsible content. This content by default starts collapsed and requires a user to click on the title bar to expand it. To open a collapsible section by default add <code>open</code> to the buttons class. The HTML for this element is below the following example:
+        </p>
+        <button type="button" class="collapsible">Collapsible Section</button>
+        <div class="collapsible-content">
+            <p>
+                Collapsible content. Remember you can add the class of <code>open</code> to the button class and it will start opened.
+            </p>
+        </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;button type="button" class="collapsible"&gt;Title&lt;/button&gt;
+&lt;div class="collapsible-content"&gt;
+    &lt;p&gt;
+        The hidden collapsible content.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+        </main>
+{{FOOTER}}
+    </div>
+</body>
+</html>

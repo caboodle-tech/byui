@@ -1,0 +1,69 @@
+<?php
+
+if ( is_cli() === true && http_response_code() === false ) {
+    
+    // Make sure we are in the proper directory for the compiler to work or bail.
+    $cwd = getcwd();
+    $cwd = substr( $cwd, strrpos( $cwd, '/' ) + 1 );
+    if ( $cwd == 'bin' ) {
+        chdir ( '../' );
+    } elseif ( $cwd != 'byui' ) {
+        echo "\033[0;31mYou must run the compiler from the bin directory or the projects root (byui) directory.\033[0m" . PHP_EOL;
+        die();
+    }
+
+    // Attempt to record the command the user ran.
+    $cmd = '';
+    if ( $argc > 1 ) {
+        $cmd = $argv[1];
+    }
+
+    // Attempt to run the command.
+    switch ( $cmd ) {
+        case '-h':
+        case '--h':
+        case '-help':
+        case '--help':
+        case 'list':
+            show_commands();
+            break;
+        case 'compile:dev':
+            
+            break;
+        case 'compile:rel':
+        case 'compile:release':
+
+            break;
+        default:
+            if ( strlen( $cmd ) < 1 ) {
+                // No command given show available commands.
+                show_commands();
+            } else {
+                // Invalid command.
+                echo "Command not recognized. Run\033[1;33m cli --help\033[0m to see available commands." . PHP_EOL;
+            }
+            break;
+    }
+
+} else {
+
+    // Command line usage was not detected. Show warning and die.
+    echo 'This compiler can only be used via command line for security purposes.';
+    die();
+
+}
+
+// Check if the user is using a CLI.
+function is_cli(){
+    if ( defined('STDIN') ){ return true; }
+    if ( php_sapi_name() === 'cli' ){ return true; }
+    if ( array_key_exists('SHELL', $_ENV) ){ return true; }
+    if ( empty($_SERVER['REMOTE_ADDR']) AND !isset($_SERVER['HTTP_USER_AGENT']) AND count($_SERVER['argv']) > 0){ return true; }
+    if ( !array_key_exists('REQUEST_METHOD', $_SERVER) ){ return true; }
+    return false;
+}
+
+function show_commands() {
+    echo 'Showing command list is not implemented yet.' . PHP_EOL;
+}
+?>
