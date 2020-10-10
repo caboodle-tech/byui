@@ -28,11 +28,12 @@ if ( is_cli() === true && http_response_code() === false ) {
             show_commands();
             break;
         case 'compile:dev':
-            
+            compile_dev();
             break;
         case 'compile:rel':
         case 'compile:release':
-
+            compile_dev();
+            compile_release();
             break;
         default:
             if ( strlen( $cmd ) < 1 ) {
@@ -53,6 +54,54 @@ if ( is_cli() === true && http_response_code() === false ) {
 
 }
 
+function compile( $file, $path, $parts ) {
+
+    // Load the file.
+    ob_start();
+    require $file;
+    $content = ob_get_clean();
+
+    // Update template parts.
+    $parts['HEAD'] = str_replace( '{{PATH}}', $path, $parts['HEAD'] );
+    $parts['HEAD'] = str_replace( '{{AUTHOR}}', $author, $parts['HEAD'] );
+    $parts['HEAD'] = str_replace( '{{DESCRIPTION}}', $description, $parts['HEAD'] );
+    $parts['HEAD'] = str_replace( '{{KEYWORDS}}', $keywords, $parts['HEAD'] );
+    $parts['HEAD'] = str_replace( '{{TITLE}}', $title, $parts['HEAD'] );
+    $parts['FOOTER'] = str_replace( '{{PATH}}', $path, $parts['FOOTER'] );
+
+    // Apply the template parts to the file.
+    $content = str_replace( '{{PATH}}', $path, $content );
+    $content = str_replace( '{{HEAD}}', $parts['HEAD'], $content );
+    $content = str_replace( '{{FOOTER}}', $parts['FOOTER'], $content );
+
+    // Save the compiled file.
+    $path = str_replace( '.phtml', '.html', $file );
+    file_put_contents( $path, $content );
+
+}
+
+function compile_dev() {
+    
+    // Load the template parts into an associative array.
+    $templates = scandir( 'templates' );
+    $templates = array_diff( $templates, array( '.', '..' ) );
+    foreach ( $templates as $template ) {
+        $name = basename( $template, '.phtml' );
+        $parts[ strtoupper( $name ) ] = file_get_contents( 'templates/' . $template );
+    }
+
+    // Compile the main index file.
+    compile( 'index.phtml', '', $parts );
+
+    // Recursively compile all the cousre files.
+    recursive_compile( 'courses', $parts );
+
+}
+
+function compile_release() {
+
+}
+
 // Check if the user is using a CLI.
 function is_cli(){
     if ( defined('STDIN') ){ return true; }
@@ -61,6 +110,23 @@ function is_cli(){
     if ( empty($_SERVER['REMOTE_ADDR']) AND !isset($_SERVER['HTTP_USER_AGENT']) AND count($_SERVER['argv']) > 0){ return true; }
     if ( !array_key_exists('REQUEST_METHOD', $_SERVER) ){ return true; }
     return false;
+}
+
+function recursive_compile( $dir, $parts ) {
+
+    $files   = scandir( $dir );
+    $dir_sep = DIRECTORY_SEPARATOR;
+
+    foreach ( $files as $key => $value ) {
+        $path = realpath( $dir . $dir_sep . $value );
+        if ( ! is_dir( $path ) ) {
+            $relative = '..' . $dir_sep . $dir . $dir_sep;
+            compile( $path, $relative, $parts );
+        } elseif ( $value != '.' && $value != '..' ) {
+            recursive_compile( $dir . $dir_sep . $value, $parts );
+        }
+    }
+
 }
 
 function show_commands() {
