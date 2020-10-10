@@ -32,7 +32,6 @@ if ( is_cli() === true && http_response_code() === false ) {
             break;
         case 'compile:rel':
         case 'compile:release':
-            compile_dev();
             compile_release();
             break;
         default:
@@ -61,16 +60,24 @@ function compile( $file, $path, $parts ) {
     require $file;
     $content = ob_get_clean();
 
+    // Create the relative path.
+    $relative = '';
+    $count    = substr_count( $path, DIRECTORY_SEPARATOR ) - 1;
+    while( $count > 0 ) {
+        $relative .= '../';
+        $count--;
+    }
+
     // Update template parts.
-    $parts['HEAD'] = str_replace( '{{PATH}}', $path, $parts['HEAD'] );
+    $parts['HEAD'] = str_replace( '{{PATH}}', $relative, $parts['HEAD'] );
     $parts['HEAD'] = str_replace( '{{AUTHOR}}', $author, $parts['HEAD'] );
     $parts['HEAD'] = str_replace( '{{DESCRIPTION}}', $description, $parts['HEAD'] );
     $parts['HEAD'] = str_replace( '{{KEYWORDS}}', $keywords, $parts['HEAD'] );
     $parts['HEAD'] = str_replace( '{{TITLE}}', $title, $parts['HEAD'] );
-    $parts['FOOTER'] = str_replace( '{{PATH}}', $path, $parts['FOOTER'] );
+    $parts['FOOTER'] = str_replace( '{{PATH}}', $relative, $parts['FOOTER'] );
 
     // Apply the template parts to the file.
-    $content = str_replace( '{{PATH}}', $path, $content );
+    $content = str_replace( '{{PATH}}', $relative, $content );
     $content = str_replace( '{{HEAD}}', $parts['HEAD'], $content );
     $content = str_replace( '{{FOOTER}}', $parts['FOOTER'], $content );
 
@@ -100,6 +107,30 @@ function compile_dev() {
 
 function compile_release() {
 
+    compile_dev();
+
+    // Make release dir if its missing.
+    @mkdir( 'release' );
+
+    // Copy to release entire directories we need.
+    $dirs = [ 'assets', 'css', 'fonts', 'js' ];
+    foreach ( $dirs as $dir ) {
+        recurse_copy( $dir, 'release' );
+    }
+
+    // Copy main index file.
+    copy( 'index.html', 'release/index.html' );
+
+    // Copy main license files and read-me.
+    $licenses = [ 'LICENSE', 'LICENSE-BSD-3', 'LICENSE-CC-BY-NC-SA', 'README.md' ];
+    foreach ( $licenses as $license ) {
+        copy( $license, 'release/' . $license );
+    }
+
+    // Loop through course directory and keep only the file types we want.
+    $limit = [ 'html' ];
+    recurse_copy( 'courses', 'release', $limit );
+    
 }
 
 // Check if the user is using a CLI.
@@ -120,14 +151,47 @@ function recursive_compile( $dir, $parts ) {
     foreach ( $files as $key => $value ) {
         $path = realpath( $dir . $dir_sep . $value );
         if ( ! is_dir( $path ) ) {
-            $relative = '..' . $dir_sep . $dir . $dir_sep;
-            compile( $path, $relative, $parts );
+            // Do not try to compile a non-phtml file.
+            if ( strpos( $value, '.phtml' ) > -1 ) {
+                $relative = '..' . $dir_sep . $dir . $dir_sep;
+                compile( $path, $relative, $parts );
+            }
         } elseif ( $value != '.' && $value != '..' ) {
             recursive_compile( $dir . $dir_sep . $value, $parts );
         }
     }
 
 }
+
+// https://stackoverflow.com/a/2050909/3193156
+function recurse_copy( $src, $dst, $limit = [] ) {
+    $dir     = opendir( $src );
+    $dir_sep = DIRECTORY_SEPARATOR;
+    $dst_dir = $dst . $dir_sep . $src;
+    @mkdir( $dst_dir );
+    while( false !== ( $file = readdir( $dir ) ) ) {
+        if ( $file != '.'  && $file != '..' ) {
+            $from = $src . $dir_sep . $file;
+            //echo "$from >>> $to" . PHP_EOL . PHP_EOL;
+            if ( is_dir( $from) ) {
+                //echo "recurse_copy( $from, $dst )" . PHP_EOL;
+                recurse_copy( $from, $dst, $limit );
+            } else {
+                $to = $dst_dir . $dir_sep . $file;
+                //echo "copy( $from, $to )" . PHP_EOL;
+                if ( count( $limit ) > 0 ) {
+                    $ext = substr( $to, strpos( $to, '.' ) + 1 );
+                    if ( in_array( $ext, $limit ) ) {
+                        copy( $from, $to );
+                    }
+                } else {
+                    copy( $from, $to );
+                }
+            }
+        }
+    }
+    closedir( $dir );
+} 
 
 function show_commands() {
     echo 'Showing command list is not implemented yet.' . PHP_EOL;
