@@ -38,7 +38,7 @@ body {
 }
 
 p {
-    margin: @spacing / 2 0;
+    margin: @spacing 0;
 }
 
 .collapsible {
@@ -112,6 +112,21 @@ p {
         border-bottom: 1px solid @footer-bg-color;
     }
 
+    #go-back {
+        z-index: 50;
+        height: 0;
+        padding: @spacing @spacing 0 0;
+        overflow: visible;
+        font-size: 2rem;
+        text-align: right;
+
+        a {
+            color: @link-color;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
     header {
         display: flex;
         flex-direction: column;
@@ -142,6 +157,25 @@ p {
             a {
                 text-decoration: none;
                 cursor: pointer;
+            }
+        }
+
+        dl {
+
+            dt {
+                font-weight: bold;
+                text-transform: capitalize;
+                padding-bottom: @spacing / 2;
+
+                a {
+                    font-weight: normal;
+                    color: @link-color;
+                    text-decoration: none;
+                }
+            }
+
+            dd {
+                padding-bottom: @spacing / 2;
             }
         }
 
@@ -197,6 +231,7 @@ p {
                     &:before {
                         content: '\2299';
                         font-size: @font-size;
+                        margin-top: -5px;
                     }
                 }
             }
