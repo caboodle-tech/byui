@@ -112,6 +112,9 @@ function compile_release() {
     // Make release dir if its missing.
     @mkdir( 'release' );
 
+    // Make .gitkeep for release directory if its missing.
+    file_put_contents( 'release/.gitkeep', '' );    
+
     // Copy to release entire directories we need.
     $dirs = [ 'assets', 'css', 'fonts', 'js' ];
     foreach ( $dirs as $dir ) {

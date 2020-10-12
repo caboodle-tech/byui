@@ -31,7 +31,7 @@ body {
   overflow-y: auto;
 }
 p {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 .collapsible {
   position: relative;
@@ -92,6 +92,19 @@ p {
   margin: 40px 0;
   border-bottom: 1px solid #212529;
 }
+#page #go-back {
+  z-index: 50;
+  height: 0;
+  padding: 20px 20px 0 0;
+  overflow: visible;
+  font-size: 2rem;
+  text-align: right;
+}
+#page #go-back a {
+  color: #0076b6;
+  text-decoration: none;
+  cursor: pointer;
+}
 #page header {
   display: flex;
   flex-direction: column;
@@ -127,6 +140,19 @@ p {
 #page main h6 a {
   text-decoration: none;
   cursor: pointer;
+}
+#page main dl dt {
+  font-weight: bold;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+}
+#page main dl dt a {
+  font-weight: normal;
+  color: #0076b6;
+  text-decoration: none;
+}
+#page main dl dd {
+  padding-bottom: 10px;
 }
 #page main ol {
   list-style: none;
@@ -168,6 +194,7 @@ p {
 #page main ol ul li:before {
   content: '\2299';
   font-size: 1.2rem;
+  margin-top: -5px;
 }
 #page main ol.smaller li {
   margin: 0.5rem 0 0.5rem 0;

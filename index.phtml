@@ -151,7 +151,41 @@ $title       = 'BYUI CIT Course Material';
 </code>
 </pre>
             <p>
-                And of course you can nest <code>ul</code> and <code>ol</code> inside one another in any combination. Below is an example of nesting and the HTML to make this element:
+                Definition lists can be added to provide a list of vocabulary or important terms and their definitions or explanations. The definition list can also be used to link out to an resource and provide an explanation of what that resource is. The HTML code below shows one term being defined and one additional resource being linked to:
+            </p>
+            <dl>
+                <dt>
+                    Term
+                </dt>
+                <dd>
+                    Term definition.
+                </dd>
+                <dt>
+                    <a href="#enter-url-here" target="_blank">Linked Term</a>
+                </dt>
+                <dd>
+                    Resource definition.
+                </dd>
+            </dl>
+<pre class="lang-html">
+<code class="lang-html">&lt;dl&gt;
+    &lt;dt&gt;
+        Term
+    &lt;/dt&gt;
+    &lt;dd&gt;
+        Term definition.
+    &lt;/dd&gt;
+    &lt;dt&gt;
+        &lt;a href="#enter-url-here" target="_blank"&gt;Linked Term&lt;/a&gt;
+    &lt;/dt&gt;
+    &lt;dd&gt;
+        Resource definition.
+    &lt;/dd&gt;
+&lt;/dl&gt;
+</code>
+</pre>
+            <p>
+                The following example is used to demonstrate what nested lists will look like. The code for this demo is also below:
             </p>
             <ol>
                 <li>
@@ -247,6 +281,15 @@ $title       = 'BYUI CIT Course Material';
     &lt;p&gt;
         The hidden collapsible content.
     &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+            <p>
+                To provide a go back link on a page add the following code in between the header and main elements. Note that you should chnage the relative path to the correct value:
+            </p>
+<pre>
+<code>&lt;div id="go-back"&gt;
+    &lt;a href="../"&gt;&amp;#10554; Go Back&lt;/a&gt;
 &lt;/div&gt;
 </code>
 </pre>
