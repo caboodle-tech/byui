@@ -12,6 +12,12 @@
 @spacing: 20px;
 @font-size: 1.20rem;
 
+.drop-shadow(){
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -20,6 +26,7 @@ html, body {
     min-width: 320px;
     text-rendering: optimizeLegibility;
     font-family: 'Open Sans', sans-serif;
+    background-color: @page-bg-color;
 }
 
 html {
@@ -41,47 +48,14 @@ p {
     margin: @spacing 0;
 }
 
-.collapsible {
-    position: relative;
-    color: @font-alt-color;
-    background-color: @header-bg-color;
-    padding: @spacing;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-weight: bold;
+a {
+    text-decoration: none;
     cursor: pointer;
-
-    &:after {
-        position: absolute;
-        content: '+';
-        top: @spacing / 4;
-        right: @spacing;
-        font-size: @font-size * 2;
-        font-weight: bold;
-    }
-
-    &.open {
-
-        &:after {
-            content: 'x';
-        }
-
-        + .collapsible-content {
-            max-height: none;
-            padding: @spacing 0;
-            margin-bottom: @spacing;
-            border-bottom: 2px dashed @header-bg-color;
-        }
-
-    }
 }
 
-.collapsible-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
+hr {
+    margin: @spacing * 1.5 0 @spacing * 2 0;
+    border: 1px dashed lighten( @footer-bg-color, 15% );
 }
 
 .line-break {
@@ -102,11 +76,12 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     font-size: @font-size;
-    line-height: @font-size * 1.5;
+    line-height: @font-size * 1.55;
+    background-color: @page-fg-color;
 
     h1 {
         color: @header-color;
-        font-size: @font-size * 1.5;
+        font-size: @font-size * 1.8;
         padding: 0 0 @spacing / 2 0;
         margin: @spacing * 2 0;
         border-bottom: 1px solid @footer-bg-color;
@@ -132,7 +107,8 @@ p {
         flex-direction: column;
         text-align: center;
         padding: @spacing * 2 @spacing;
-        font-size: @font-size * 1.5;
+        font-size: @font-size * 1.8;
+        line-height: @font-size * 2.3;
         text-transform: uppercase;
         background-color: @header-bg-color;
         color: @font-alt-color;
@@ -144,6 +120,7 @@ p {
 
         a {
             color: @link-color;
+            border-bottom: 3px double @link-color;
 
             &:hover {
                 color: darken( @link-color, 7% );
@@ -151,12 +128,68 @@ p {
         }
 
         h2, h3, h4, h5, h6 {
-            display: inline-block;
-            font-size: @font-size * 1.5;
+            display: block;
+            padding: 0 0 @spacing / 2 0;
+            font-size: @font-size * 1.6;
+            border-bottom: 1px solid @footer-bg-color;
             
             a {
                 text-decoration: none;
+                border: none;
                 cursor: pointer;
+            }
+        }
+
+        .collapsible {
+            position: relative;
+            color: @font-alt-color;
+            background-color: @header-bg-color;
+            padding: @spacing;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                content: '+';
+                top: @spacing / 4;
+                right: @spacing;
+                font-size: @font-size * 2;
+                font-weight: bold;
+            }
+
+            &.open {
+
+                &:after {
+                    content: 'x';
+                }
+
+                + .collapsible-content {
+                    max-height: none;
+                    padding: @spacing;
+                    border-top: 2px solid @header-bg-color;
+                    border-bottom: 2px solid @header-bg-color;
+                    background-color: fade( @header-bg-color, 5% );
+                }
+
+            }
+        }
+
+        .collapsible-content {
+            position: relative;
+            max-height: 0;
+            overflow: hidden;
+            margin: -2px -@spacing @spacing - @spacing;
+            transition: max-height 0.2s ease-out;
+        }
+
+        li {
+            h2, h3, h4, h5, h6 {
+                border: none;
+                display: inline-block;
             }
         }
 
@@ -168,9 +201,9 @@ p {
                 padding-bottom: @spacing / 2;
 
                 a {
-                    font-weight: normal;
                     color: @link-color;
                     text-decoration: none;
+                    border: 0;
                 }
             }
 
@@ -320,13 +353,42 @@ p {
             }
         }
 
+        blockquote {
+            position: relative;
+            margin: @spacing 0;
+            padding: 1rem 0.75rem 1rem 4rem;
+            font-style: italic;
+            font-family: Georgia, serif;
+            background-color: @quote-bg-color;
+            .drop-shadow();
+
+            &:before {
+                position: absolute;
+                top: 3.5rem;
+                left: 0.6rem;
+                content: '\201C';
+                font-size: 6rem;
+                line-height: 1rem;
+                font-family: Georgia, serif;
+            }
+
+            cite {
+                display: block;
+                font-size: 1.05rem;
+                margin-top: 0.75rem;
+
+                &:before {
+                    content: "\2014 \2009";
+                }
+            }
+
+        }
+
         .rubric {
             padding: @spacing;
             margin: @spacing 0;
             background-color: @rubric-bg-color;
-            -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-            -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+            .drop-shadow();
 
             h2, h3, h4, h5, h6 {
                 display: block;
@@ -341,9 +403,7 @@ p {
             padding: @spacing;
             margin: @spacing 0;
             background-color: @callout-bg-color;
-            -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-            -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-            box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+            .drop-shadow();
 
             h2, h3, h4, h5, h6 {
                 display: block;
@@ -410,6 +470,10 @@ p {
 
         main {
 
+            blockquote {
+                margin: @spacing @spacing * 1.5;
+            }
+
             .rubric {
                 margin: @spacing @spacing * 1.5;
             }
@@ -434,8 +498,6 @@ p {
     @media ( min-width: 1200px ) {
         border-left: 1px solid @footer-bg-color;
         border-right: 1px solid @footer-bg-color;
-        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.4);
-        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.4);
-        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.4);
+        .drop-shadow();
     }
 }

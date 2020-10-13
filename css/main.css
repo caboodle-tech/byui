@@ -15,6 +15,7 @@ body {
   min-width: 320px;
   text-rendering: optimizeLegibility;
   font-family: 'Open Sans', sans-serif;
+  background-color: #f5f5f5;
 }
 html {
   box-sizing: border-box;
@@ -33,39 +34,13 @@ body {
 p {
   margin: 20px 0;
 }
-.collapsible {
-  position: relative;
-  color: #ffffff;
-  background-color: #0076b6;
-  padding: 20px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-weight: bold;
+a {
+  text-decoration: none;
   cursor: pointer;
 }
-.collapsible:after {
-  position: absolute;
-  content: '+';
-  top: 5px;
-  right: 20px;
-  font-size: 2.4rem;
-  font-weight: bold;
-}
-.collapsible.open:after {
-  content: 'x';
-}
-.collapsible.open + .collapsible-content {
-  max-height: none;
-  padding: 20px 0;
-  margin-bottom: 20px;
-  border-bottom: 2px dashed #0076b6;
-}
-.collapsible-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
+hr {
+  margin: 30px 0 40px 0;
+  border: 1px dashed #434b53;
 }
 .line-break {
   display: block;
@@ -83,11 +58,12 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   font-size: 1.2rem;
-  line-height: 1.8rem;
+  line-height: 1.86rem;
+  background-color: #ffffff;
 }
 #page h1 {
   color: #000000;
-  font-size: 1.8rem;
+  font-size: 2.16rem;
   padding: 0 0 10px 0;
   margin: 40px 0;
   border-bottom: 1px solid #212529;
@@ -110,7 +86,8 @@ p {
   flex-direction: column;
   text-align: center;
   padding: 40px 20px;
-  font-size: 1.8rem;
+  font-size: 2.16rem;
+  line-height: 2.76rem;
   text-transform: uppercase;
   background-color: #0076b6;
   color: #ffffff;
@@ -121,6 +98,7 @@ p {
 }
 #page main a {
   color: #0076b6;
+  border-bottom: 3px double #0076b6;
 }
 #page main a:hover {
   color: #005f92;
@@ -130,8 +108,10 @@ p {
 #page main h4,
 #page main h5,
 #page main h6 {
-  display: inline-block;
-  font-size: 1.8rem;
+  display: block;
+  padding: 0 0 10px 0;
+  font-size: 1.92rem;
+  border-bottom: 1px solid #212529;
 }
 #page main h2 a,
 #page main h3 a,
@@ -139,7 +119,53 @@ p {
 #page main h5 a,
 #page main h6 a {
   text-decoration: none;
+  border: none;
   cursor: pointer;
+}
+#page main .collapsible {
+  position: relative;
+  color: #ffffff;
+  background-color: #0076b6;
+  padding: 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+#page main .collapsible:after {
+  position: absolute;
+  content: '+';
+  top: 5px;
+  right: 20px;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+#page main .collapsible.open:after {
+  content: 'x';
+}
+#page main .collapsible.open + .collapsible-content {
+  max-height: none;
+  padding: 20px;
+  border-top: 2px solid #0076b6;
+  border-bottom: 2px solid #0076b6;
+  background-color: rgba(0, 118, 182, 0.05);
+}
+#page main .collapsible-content {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  margin: -2px -20px 0px;
+  transition: max-height 0.2s ease-out;
+}
+#page main li h2,
+#page main li h3,
+#page main li h4,
+#page main li h5,
+#page main li h6 {
+  border: none;
+  display: inline-block;
 }
 #page main dl dt {
   font-weight: bold;
@@ -147,9 +173,9 @@ p {
   padding-bottom: 10px;
 }
 #page main dl dt a {
-  font-weight: normal;
   color: #0076b6;
   text-decoration: none;
+  border: 0;
 }
 #page main dl dd {
   padding-bottom: 10px;
@@ -254,6 +280,34 @@ p {
   font-size: 1.2rem;
   margin-top: -6px;
 }
+#page main blockquote {
+  position: relative;
+  margin: 20px 0;
+  padding: 1rem 0.75rem 1rem 4rem;
+  font-style: italic;
+  font-family: Georgia, serif;
+  background-color: #f1f1f1;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+#page main blockquote:before {
+  position: absolute;
+  top: 3.5rem;
+  left: 0.6rem;
+  content: '\201C';
+  font-size: 6rem;
+  line-height: 1rem;
+  font-family: Georgia, serif;
+}
+#page main blockquote cite {
+  display: block;
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+}
+#page main blockquote cite:before {
+  content: "\2014 \2009";
+}
 #page main .rubric {
   padding: 20px;
   margin: 20px 0;
@@ -335,6 +389,9 @@ p {
   #page header #course-code {
     text-align: right;
   }
+  #page main blockquote {
+    margin: 20px 30px;
+  }
   #page main .rubric {
     margin: 20px 30px;
   }
@@ -352,8 +409,8 @@ p {
   #page {
     border-left: 1px solid #212529;
     border-right: 1px solid #212529;
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
   }
 }

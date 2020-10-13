@@ -30,7 +30,26 @@ $title       = 'BYUI CIT Course Material';
                 </li>
             </ul>
             <h2>Style Guide</h2>
-            <p>This website has specific styles for the following elements:</p>
+<div id="go-back">
+    <a href="#go-back">&#10554; Go Back</a>
+</div>
+            <p>
+                &nbsp;
+                <!-- Add needed space for the go back demo. -->
+            </p>
+            <p>
+                You should use the back link on pages or assignments where it makes sense to aid the users navigation between content. If you have a page or assignment you wish to leave detached from everything else please leave this off. Notice that we only use relative navigation in this link (<code>../</code>). You will need to add the following code between the pages <code>header</code> and <code>main</code> section: 
+            </p>
+<pre>
+<code>&lt;div id="go-back"&gt;
+    &lt;a href="../"&gt;&amp;#10554; Go Back&lt;/a&gt;
+&lt;/div&gt;
+</code>
+</pre>  
+            <hr>
+            <p>
+                Callouts are used to call attention to some important information. This should be used when instructors or students need to pay careful attention to something.
+            </p>
             <div class="callout">
                 <h2>Callouts:</h2>
                 <p>
@@ -46,6 +65,10 @@ $title       = 'BYUI CIT Course Material';
 &lt;/div&gt;
 </code>
 </pre>      
+            <hr>
+            <p>
+                A rubric specific callout is used to highlight the assignments grading requirements and is usually placed at the end of an assignment. These style callouts can be used as part of assignment steps to highlight specific criteria a student or instructor should look for at that step.
+            </p>
             <div class="rubric">
                 <h4><strong>Rubric:</strong></h4>
                 <p>
@@ -60,7 +83,32 @@ $title       = 'BYUI CIT Course Material';
     &lt;/p&gt;
 &lt;/div&gt;
 </code>
-</pre>      <p>
+</pre>      
+            <hr>
+            <p>
+                Quotes can be added to pages or assignments using an HTML <code>blockquote</code>. If you would like to visually specify an author or source for your quote add the <code>cite</code> tag below your quote but inside the <code>blockquote</code>. Visual citations may be optional depending on how you referenced the quote but you should add a link to the original source in the <code>blockquote</code>'s inline cite line. See the simplified code example below:
+            </p>
+            <blockquote cite="https://example.com">
+                <p>
+                    If future generations are to remember us more with gratitude than sorrow, we must achieve more than just the miracles of technology. We must also leave them a glimpse of the world as it was created, not just as it looked when we got through with it
+                </p>
+                <cite>
+                    Lyndon B. Johnson
+                </cite>
+            </blockquote>
+<pre class="lang-html">
+<code class="lang-html">&lt;blockquote cite="https://link-to-source.com"&gt;
+    &lt;p&gt;
+        Your quote here.
+    &lt;/p&gt;
+    &lt;cite&gt;
+        Author Here (Optional)
+    &lt;/cite&gt;
+&lt;/blockquote&gt;
+</code>
+</pre>  
+            <hr>
+            <p>
                 Assignments should be organized inside an <code>ol</code> (ordered list). Below is an example of what this looks like followed by the HTML code for this element. Please note that this website runs a JavaScript function to automatically create an anchor (id) for each step if you used the correct HTML format. These anchors are nice when communicating with students and instructors because you can provide a direct link to the content in question. These links can change if you update the amount of steps in an assignment so they should only be used short term.
             </p>
             <ol>
@@ -104,7 +152,9 @@ $title       = 'BYUI CIT Course Material';
         &lt;/p&gt;
     &lt;/li&gt;
 &lt;/ol&gt;
-</pre>      <p>
+</pre>      
+            <hr>
+            <p>
                 You can also use traditional <code>ul<code> (unordered lists). The following is an example of an unordered list followed by the HTML to create this element.
             </p>
             <ul>
@@ -150,6 +200,7 @@ $title       = 'BYUI CIT Course Material';
 &lt;/ul&gt;
 </code>
 </pre>
+            <hr>
             <p>
                 Definition lists can be added to provide a list of vocabulary or important terms and their definitions or explanations. The definition list can also be used to link out to an resource and provide an explanation of what that resource is. The HTML code below shows one term being defined and one additional resource being linked to:
             </p>
@@ -183,7 +234,8 @@ $title       = 'BYUI CIT Course Material';
     &lt;/dd&gt;
 &lt;/dl&gt;
 </code>
-</pre>
+</pre>      
+            <hr>
             <p>
                 The following example is used to demonstrate what nested lists will look like. The code for this demo is also below:
             </p>
@@ -266,15 +318,16 @@ $title       = 'BYUI CIT Course Material';
 &lt;/ol&gt;
 </code>
 </pre>
-        <p>
-            You can also have sections of collapsible content. This content by default starts collapsed and requires a user to click on the title bar to expand it. To open a collapsible section by default add <code>open</code> to the buttons class. The HTML for this element is below the following example:
-        </p>
-        <button type="button" class="collapsible">Collapsible Section</button>
-        <div class="collapsible-content">
+            <hr>
             <p>
-                Collapsible content. Remember you can add the class of <code>open</code> to the button class and it will start opened.
+                You can also have sections of collapsible content. This content by default starts collapsed and requires a user to click on the title bar to expand it. To open a collapsible section by default add <code>open</code> to the buttons class. The HTML for this element is below the following example:
             </p>
-        </div>
+            <button type="button" class="collapsible">Collapsible Section</button>
+            <div class="collapsible-content">
+                <p>
+                    Collapsible content. Remember you can add the class of <code>open</code> to the button class and it will start opened.
+                </p>
+            </div>
 <pre class="lang-html">
 <code class="lang-html">&lt;button type="button" class="collapsible"&gt;Title&lt;/button&gt;
 &lt;div class="collapsible-content"&gt;
@@ -284,13 +337,28 @@ $title       = 'BYUI CIT Course Material';
 &lt;/div&gt;
 </code>
 </pre>
+            <hr>
             <p>
-                To provide a go back link on a page add the following code in between the header and main elements. Note that you should chnage the relative path to the correct value:
+                Throughout this style guide we have been using horizontal rules (<code>hr</code>) to divide sections. The code for that is below:
             </p>
-<pre>
-<code>&lt;div id="go-back"&gt;
-    &lt;a href="../"&gt;&amp;#10554; Go Back&lt;/a&gt;
-&lt;/div&gt;
+<pre class="lang-html"><code class="lang-html">&lt;hr&gt;</code></pre>
+            <hr>
+            <p>
+                Throughout this style guide we have used several HTML code examples. Code examples can be added to any page or assignment using the code below. Please keep the following in mind:
+            </p>
+            <ul>
+                <li>
+                    We support only the languages in the common package of <a href="https://highlightjs.org/download/">Highlight JS</a>.
+                </li>
+                <li>
+                    You need to change the <code>lang</code> (language) attribute to match the language of your code; again it must be in the supported list.
+                </li>
+            </ul>
+<pre class="lang-html">
+<code class="lang-html">&lt;pre class="lang-html"&gt;
+&lt;code class="lang-html"&gt;Your code inside here. This demo uses HTML.
+&lt;/code&gt;
+&lt;/pre&gt;
 </code>
 </pre>
         </main>
