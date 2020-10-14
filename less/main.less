@@ -1,14 +1,5 @@
 @import "colors.less";
 
-@font-face {
-    font-family: 'Open Sans';
-    src: url('../fonts/opensans/opensans-regular.ttf');
-    src: url('../fonts/opensans/opensans-regular.woff2') format('woff2');
-    src: url('../fonts/opensans/opensans-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 @spacing: 20px;
 @font-size: 1.20rem;
 
@@ -38,34 +29,19 @@ html {
     word-break: break-word;
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/opensans-regular.ttf');
+    src: url('../fonts/opensans/opensans-regular.woff2') format('woff2');
+    src: url('../fonts/opensans/opensans-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-size: 62.5%;
     overflow: hidden;
     overflow-y: auto;
-}
-
-p {
-    margin: @spacing 0;
-}
-
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
-hr {
-    margin: @spacing * 1.5 0 @spacing * 2 0;
-    border: 1px dashed lighten( @footer-bg-color, 15% );
-}
-
-.line-break {
-    display: block;
-    width: 100%;
-    height: @font-size;
-}
-
-.highlight {
-    background-color: @highlight-color;
 }
 
 #page {
@@ -79,12 +55,37 @@ hr {
     line-height: @font-size * 1.55;
     background-color: @page-fg-color;
 
+
+    p {
+        margin: @spacing 0;
+    }
+
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    hr {
+        margin: @spacing * 1.5 0 @spacing * 2 0;
+        border: 1px dashed lighten( @footer-bg-color, 15% );
+    }
+
     h1 {
         color: @header-color;
         font-size: @font-size * 1.8;
         padding: 0 0 @spacing / 2 0;
         margin: @spacing * 2 0;
         border-bottom: 1px solid @footer-bg-color;
+    }
+
+    .line-break {
+        display: block;
+        width: 100%;
+        height: @font-size;
+    }
+
+    .highlight {
+        background-color: @highlight-color;
     }
 
     #go-back {
@@ -98,6 +99,7 @@ hr {
         a {
             color: @link-color;
             text-decoration: none;
+            border: none;
             cursor: pointer;
         }
     }
@@ -124,232 +126,6 @@ hr {
 
             &:hover {
                 color: darken( @link-color, 7% );
-            }
-        }
-
-        h2, h3, h4, h5, h6 {
-            display: block;
-            padding: 0 0 @spacing / 2 0;
-            font-size: @font-size * 1.6;
-            border-bottom: 1px solid @footer-bg-color;
-            
-            a {
-                text-decoration: none;
-                border: none;
-                cursor: pointer;
-            }
-        }
-
-        .collapsible {
-            position: relative;
-            color: @font-alt-color;
-            background-color: @header-bg-color;
-            padding: @spacing;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-weight: bold;
-            cursor: pointer;
-
-            &:after {
-                position: absolute;
-                content: '+';
-                top: @spacing / 4;
-                right: @spacing;
-                font-size: @font-size * 2;
-                font-weight: bold;
-            }
-
-            &.open {
-
-                &:after {
-                    content: 'x';
-                }
-
-                + .collapsible-content {
-                    max-height: none;
-                    padding: @spacing;
-                    border-top: 2px solid @header-bg-color;
-                    border-bottom: 2px solid @header-bg-color;
-                    background-color: fade( @header-bg-color, 5% );
-                }
-
-            }
-        }
-
-        .collapsible-content {
-            position: relative;
-            max-height: 0;
-            overflow: hidden;
-            margin: -2px -@spacing @spacing - @spacing;
-            transition: max-height 0.2s ease-out;
-        }
-
-        li {
-            h2, h3, h4, h5, h6 {
-                border: none;
-                display: inline-block;
-            }
-        }
-
-        dl {
-
-            dt {
-                font-weight: bold;
-                text-transform: capitalize;
-                padding-bottom: @spacing / 2;
-
-                a {
-                    color: @link-color;
-                    text-decoration: none;
-                    border: 0;
-                }
-            }
-
-            dd {
-                padding-bottom: @spacing / 2;
-            }
-        }
-
-        ol {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            counter-reset: custom-counter;
-
-            > li {
-                counter-increment: custom-counter;
-                margin: 2rem 0;
-
-                &:before {
-                    content: counter( custom-counter );
-                    margin-right: 0.5rem;
-                    color: @footer-bg-color;
-                    font-weight: bold;
-                    font-size: @font-size * 2.5;
-                    line-height: 1rem;
-                    font-family: "Lucida Console", Monaco, monospace;
-                }
-
-                &:nth-child(-n + 9):before {
-                    content: '0' counter( custom-counter );
-                }
-            }
-
-            ol {
-                    
-                li {
-                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        font-size: @font-size;
-                    }
-                }
-            }
-
-            ul {
-                    
-                li {
-                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        content: '\2299';
-                        font-size: @font-size;
-                        margin-top: -5px;
-                    }
-                }
-            }
-
-            &.smaller {
-                li {
-                    margin: 0.5rem 0 0.5rem 0;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        font-size: @font-size;
-                        margin-top: -6px;
-                    }
-                }
-            }
-        }
-
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-
-            > li {
-                margin: 2rem 0;
-
-                &:before {
-                    content: '\27A4';
-                    display: inline-block;
-                    margin-top: -12px;
-                    margin-right: 0.5rem;
-                    color: @footer-bg-color;
-                    font-weight: bold;
-                    font-size: @font-size * 2;
-                    line-height: 0;
-                    vertical-align: middle;
-                }
-            }
-
-            ul {
-                    
-                li {
-                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        content: '\2299';
-                        font-size: @font-size;
-                    }
-                }
-            }
-
-            ol {
-                    
-                li {
-                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        font-size: @font-size;
-                    }
-                }
-            }
-
-            &.smaller {
-                li {
-                    margin: 0.5rem 0 0.5rem 0;
-
-                    p {
-                        display: inline-block;
-                    }
-                    
-                    &:before {
-                        font-size: @font-size;
-                        margin-top: -6px;
-                    }
-                }
             }
         }
 
@@ -384,8 +160,83 @@ hr {
 
         }
 
+        h2, h3, h4, h5, h6 {
+            display: block;
+            padding: 0 0 @spacing / 2 0;
+            margin: @spacing * 3 0 @spacing * 2 0;
+            font-size: @font-size * 1.6;
+            border-bottom: 1px solid @footer-bg-color;
+            
+            a {
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+        
+        .collapsible {
+            position: relative;
+            color: @font-alt-color;
+            background-color: @header-bg-color;
+            padding: @spacing @font-size * 2.5 @spacing @spacing;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:after {
+                position: absolute;
+                content: '+';
+                top: @spacing / 2;
+                right: @spacing;
+                font-size: @font-size * 2;
+                font-weight: bold;
+            }
+
+            &.open {
+
+                &:after {
+                    content: 'x';
+                }
+
+                + .collapsible-content {
+                    max-height: none;
+                    padding: @spacing;
+                    border-top: 2px solid @header-bg-color;
+                    border-bottom: 2px solid @header-bg-color;
+                    background-color: fade( @header-bg-color, 5% );
+                }
+
+            }
+        }
+
+        .collapsible-content {
+            position: relative;
+            max-height: 0;
+            overflow: hidden;
+            margin: -2px -@spacing @spacing - @spacing;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .callout {
+            padding: @spacing / 2 @spacing;
+            margin: @spacing 0;
+            background-color: @callout-bg-color;
+            .drop-shadow();
+
+            h2, h3, h4, h5, h6 {
+                display: block;
+                margin: @spacing 0;
+                font-size: @font-size * 1.15;
+                text-transform: capitalize;
+                color: @footer-bg-color;
+            }
+        }
+
         .rubric {
-            padding: @spacing;
+            padding: @spacing / 2 @spacing;
             margin: @spacing 0;
             background-color: @rubric-bg-color;
             .drop-shadow();
@@ -399,11 +250,26 @@ hr {
             }
         }
 
-        .callout {
-            padding: @spacing;
+        .license {
+            position: relative;
             margin: @spacing 0;
-            background-color: @callout-bg-color;
+            padding: @spacing / 2 @spacing @spacing / 2 @font-size * 4;
+            background-color: @license-bg-color;
             .drop-shadow();
+
+            &:before {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0.6rem;
+                bottom: 0;
+                width: @font-size * 3;
+                content: '\00A9';
+                font-size: @font-size * 2;
+                font-family: Georgia, serif;
+            }
 
             h2, h3, h4, h5, h6 {
                 display: block;
@@ -413,6 +279,8 @@ hr {
                 color: @footer-bg-color;
             }
         }
+
+        @import "lists.less";
     }
 
     footer {
@@ -473,12 +341,16 @@ hr {
             blockquote {
                 margin: @spacing @spacing * 1.5;
             }
+    
+            .callout {
+                margin: @spacing @spacing * 1.5;
+            }
 
             .rubric {
                 margin: @spacing @spacing * 1.5;
             }
-    
-            .callout {
+
+            .license {
                 margin: @spacing @spacing * 1.5;
             }
         }

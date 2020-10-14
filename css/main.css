@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'Open Sans';
-  src: url('../fonts/opensans/opensans-regular.ttf');
-  src: url('../fonts/opensans/opensans-regular.woff2') format('woff2');
-  src: url('../fonts/opensans/opensans-regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 html,
 body {
   margin: 0;
@@ -26,29 +18,18 @@ html {
   box-sizing: inherit;
   word-break: break-word;
 }
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/opensans/opensans-regular.ttf');
+  src: url('../fonts/opensans/opensans-regular.woff2') format('woff2');
+  src: url('../fonts/opensans/opensans-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   font-size: 62.5%;
   overflow: hidden;
   overflow-y: auto;
-}
-p {
-  margin: 20px 0;
-}
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-hr {
-  margin: 30px 0 40px 0;
-  border: 1px dashed #434b53;
-}
-.line-break {
-  display: block;
-  width: 100%;
-  height: 1.2rem;
-}
-.highlight {
-  background-color: rgba(255, 243, 141, 0.4);
 }
 #page {
   display: flex;
@@ -61,12 +42,31 @@ hr {
   line-height: 1.86rem;
   background-color: #ffffff;
 }
+#page p {
+  margin: 20px 0;
+}
+#page a {
+  text-decoration: none;
+  cursor: pointer;
+}
+#page hr {
+  margin: 30px 0 40px 0;
+  border: 1px dashed #434b53;
+}
 #page h1 {
   color: #000000;
   font-size: 2.16rem;
   padding: 0 0 10px 0;
   margin: 40px 0;
   border-bottom: 1px solid #212529;
+}
+#page .line-break {
+  display: block;
+  width: 100%;
+  height: 1.2rem;
+}
+#page .highlight {
+  background-color: rgba(255, 243, 141, 0.4);
 }
 #page #go-back {
   z-index: 50;
@@ -79,6 +79,7 @@ hr {
 #page #go-back a {
   color: #0076b6;
   text-decoration: none;
+  border: none;
   cursor: pointer;
 }
 #page header {
@@ -102,183 +103,6 @@ hr {
 }
 #page main a:hover {
   color: #005f92;
-}
-#page main h2,
-#page main h3,
-#page main h4,
-#page main h5,
-#page main h6 {
-  display: block;
-  padding: 0 0 10px 0;
-  font-size: 1.92rem;
-  border-bottom: 1px solid #212529;
-}
-#page main h2 a,
-#page main h3 a,
-#page main h4 a,
-#page main h5 a,
-#page main h6 a {
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-}
-#page main .collapsible {
-  position: relative;
-  color: #ffffff;
-  background-color: #0076b6;
-  padding: 20px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-#page main .collapsible:after {
-  position: absolute;
-  content: '+';
-  top: 5px;
-  right: 20px;
-  font-size: 2.4rem;
-  font-weight: bold;
-}
-#page main .collapsible.open:after {
-  content: 'x';
-}
-#page main .collapsible.open + .collapsible-content {
-  max-height: none;
-  padding: 20px;
-  border-top: 2px solid #0076b6;
-  border-bottom: 2px solid #0076b6;
-  background-color: rgba(0, 118, 182, 0.05);
-}
-#page main .collapsible-content {
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-  margin: -2px -20px 0px;
-  transition: max-height 0.2s ease-out;
-}
-#page main li h2,
-#page main li h3,
-#page main li h4,
-#page main li h5,
-#page main li h6 {
-  border: none;
-  display: inline-block;
-}
-#page main dl dt {
-  font-weight: bold;
-  text-transform: capitalize;
-  padding-bottom: 10px;
-}
-#page main dl dt a {
-  color: #0076b6;
-  text-decoration: none;
-  border: 0;
-}
-#page main dl dd {
-  padding-bottom: 10px;
-}
-#page main ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  counter-reset: custom-counter;
-}
-#page main ol > li {
-  counter-increment: custom-counter;
-  margin: 2rem 0;
-}
-#page main ol > li:before {
-  content: counter(custom-counter);
-  margin-right: 0.5rem;
-  color: #212529;
-  font-weight: bold;
-  font-size: 3rem;
-  line-height: 1rem;
-  font-family: "Lucida Console", Monaco, monospace;
-}
-#page main ol > li:nth-child(-n + 9):before {
-  content: '0' counter(custom-counter);
-}
-#page main ol ol li {
-  margin: 0.5rem 0 0.5rem 30px;
-}
-#page main ol ol li p {
-  display: inline-block;
-}
-#page main ol ol li:before {
-  font-size: 1.2rem;
-}
-#page main ol ul li {
-  margin: 0.5rem 0 0.5rem 30px;
-}
-#page main ol ul li p {
-  display: inline-block;
-}
-#page main ol ul li:before {
-  content: '\2299';
-  font-size: 1.2rem;
-  margin-top: -5px;
-}
-#page main ol.smaller li {
-  margin: 0.5rem 0 0.5rem 0;
-}
-#page main ol.smaller li p {
-  display: inline-block;
-}
-#page main ol.smaller li:before {
-  font-size: 1.2rem;
-  margin-top: -6px;
-}
-#page main ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-#page main ul > li {
-  margin: 2rem 0;
-}
-#page main ul > li:before {
-  content: '\27A4';
-  display: inline-block;
-  margin-top: -12px;
-  margin-right: 0.5rem;
-  color: #212529;
-  font-weight: bold;
-  font-size: 2.4rem;
-  line-height: 0;
-  vertical-align: middle;
-}
-#page main ul ul li {
-  margin: 0.5rem 0 0.5rem 30px;
-}
-#page main ul ul li p {
-  display: inline-block;
-}
-#page main ul ul li:before {
-  content: '\2299';
-  font-size: 1.2rem;
-}
-#page main ul ol li {
-  margin: 0.5rem 0 0.5rem 30px;
-}
-#page main ul ol li p {
-  display: inline-block;
-}
-#page main ul ol li:before {
-  font-size: 1.2rem;
-}
-#page main ul.smaller li {
-  margin: 0.5rem 0 0.5rem 0;
-}
-#page main ul.smaller li p {
-  display: inline-block;
-}
-#page main ul.smaller li:before {
-  font-size: 1.2rem;
-  margin-top: -6px;
 }
 #page main blockquote {
   position: relative;
@@ -308,8 +132,84 @@ hr {
 #page main blockquote cite:before {
   content: "\2014 \2009";
 }
-#page main .rubric {
+#page main h2,
+#page main h3,
+#page main h4,
+#page main h5,
+#page main h6 {
+  display: block;
+  padding: 0 0 10px 0;
+  margin: 60px 0 40px 0;
+  font-size: 1.92rem;
+  border-bottom: 1px solid #212529;
+}
+#page main h2 a,
+#page main h3 a,
+#page main h4 a,
+#page main h5 a,
+#page main h6 a {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+#page main .collapsible {
+  position: relative;
+  color: #ffffff;
+  background-color: #0076b6;
+  padding: 20px 3rem 20px 20px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+#page main .collapsible:after {
+  position: absolute;
+  content: '+';
+  top: 10px;
+  right: 20px;
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+#page main .collapsible.open:after {
+  content: 'x';
+}
+#page main .collapsible.open + .collapsible-content {
+  max-height: none;
   padding: 20px;
+  border-top: 2px solid #0076b6;
+  border-bottom: 2px solid #0076b6;
+  background-color: rgba(0, 118, 182, 0.05);
+}
+#page main .collapsible-content {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  margin: -2px -20px 0px;
+  transition: max-height 0.2s ease-out;
+}
+#page main .callout {
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #fffbdb;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+#page main .callout h2,
+#page main .callout h3,
+#page main .callout h4,
+#page main .callout h5,
+#page main .callout h6 {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.38rem;
+  text-transform: capitalize;
+  color: #212529;
+}
+#page main .rubric {
+  padding: 10px 20px;
   margin: 20px 0;
   background-color: #ebffcc;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
@@ -327,24 +227,187 @@ hr {
   text-transform: capitalize;
   color: #0e72a9;
 }
-#page main .callout {
-  padding: 20px;
+#page main .license {
+  position: relative;
   margin: 20px 0;
-  background-color: #fffbdb;
+  padding: 10px 20px 10px 4.8rem;
+  background-color: #ffecec;
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
-#page main .callout h2,
-#page main .callout h3,
-#page main .callout h4,
-#page main .callout h5,
-#page main .callout h6 {
+#page main .license:before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0.6rem;
+  bottom: 0;
+  width: 3.6rem;
+  content: '\00A9';
+  font-size: 2.4rem;
+  font-family: Georgia, serif;
+}
+#page main .license h2,
+#page main .license h3,
+#page main .license h4,
+#page main .license h5,
+#page main .license h6 {
   display: block;
   margin: 20px 0;
   font-size: 1.38rem;
   text-transform: capitalize;
   color: #212529;
+}
+#page main li h2,
+#page main li h3,
+#page main li h4,
+#page main li h5,
+#page main li h6 {
+  border: none;
+  margin: 0;
+  display: inline-block;
+}
+#page main li p {
+  margin: 0.25rem 0;
+}
+#page main dl dt {
+  font-weight: bold;
+  text-transform: capitalize;
+  padding-bottom: 10px;
+}
+#page main dl dt a {
+  color: #0076b6;
+  text-decoration: none;
+  border: 0;
+}
+#page main dl dd {
+  padding-bottom: 10px;
+}
+#page main ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: custom-counter;
+}
+#page main ol > li {
+  counter-increment: custom-counter;
+  margin: 3rem 0 2rem 0;
+}
+#page main ol > li:before {
+  content: counter(custom-counter);
+  margin-right: 0.5rem;
+  color: #212529;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 1rem;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+#page main ol > li:nth-child(-n + 9):before {
+  content: '0' counter(custom-counter);
+}
+#page main ol > li:first-of-type {
+  margin: 2rem 0 2rem 0;
+}
+#page main ol ol li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol ol li p {
+  display: inline-block;
+}
+#page main ol ol li:before {
+  font-size: 1.2rem;
+}
+#page main ol ol li:first-of-type {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol ul li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol ul li p {
+  display: inline-block;
+}
+#page main ol ul li:before {
+  content: '\2299';
+  font-size: 1.2rem;
+  margin-top: -5px;
+}
+#page main ol ul li:first-of-type {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ol.smaller li {
+  margin: 0.5rem 0 0.5rem 0;
+}
+#page main ol.smaller li p {
+  display: inline-block;
+}
+#page main ol.smaller li:before {
+  font-size: 1.2rem;
+  margin-top: -6px;
+}
+#page main ol.indent li {
+  margin: 0.5rem 0 0.5rem 40px;
+}
+#page main ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#page main ul > li {
+  margin: 3rem 0 2rem 0;
+}
+#page main ul > li:before {
+  content: '\27A4';
+  display: inline-block;
+  margin-top: -0.9rem;
+  margin-right: 0.5rem;
+  color: #212529;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 0;
+  vertical-align: middle;
+}
+#page main ul > li:first-of-type {
+  margin: 2rem 0 2rem 0;
+}
+#page main ul ul li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul ul li p {
+  display: inline-block;
+}
+#page main ul ul li:before {
+  content: '\2299';
+  font-size: 1.2rem;
+}
+#page main ul ul li:first-of-type {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul ol li {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul ol li p {
+  display: inline-block;
+}
+#page main ul ol li:before {
+  font-size: 1.2rem;
+}
+#page main ul ol li:first-of-type {
+  margin: 0.5rem 0 0.5rem 30px;
+}
+#page main ul.smaller li {
+  margin: 0.5rem 0 0.5rem 0;
+}
+#page main ul.smaller li p {
+  display: inline-block;
+}
+#page main ul.smaller li:before {
+  font-size: 1.2rem;
+  margin-top: -6px;
+}
+#page main ul.indent li {
+  margin: 0.5rem 0 0.5rem 40px;
 }
 #page footer {
   font-size: 1rem;
@@ -392,10 +455,13 @@ hr {
   #page main blockquote {
     margin: 20px 30px;
   }
+  #page main .callout {
+    margin: 20px 30px;
+  }
   #page main .rubric {
     margin: 20px 30px;
   }
-  #page main .callout {
+  #page main .license {
     margin: 20px 30px;
   }
   #page footer .byui-img {

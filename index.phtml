@@ -86,6 +86,24 @@ $title       = 'BYUI CIT Course Material';
 </pre>      
             <hr>
             <p>
+                A license specific callout is used to notify the reader that the previous or following content is under some alternative or additional license. Most times this is a reminder that copyrighted material has been incorporated in a fair use manner for educational use. You should not need to add this for every piece of content but it is advisable to add this when a copyright holder has not given express permission or a strict license is attached to the original content.
+            </p>
+            <div class="license">
+                <p>
+                    The above or following content is licensed as _____ by _____. All rights are reserved. Used with permission. Used according to fair use for educational purposes.
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="license"&gt;
+    &lt;p&gt;
+        Additional license or notice explanation here...
+        ...for educational use under the &lt;a href="https://en.wikipedia.org/wiki/Fair_use"&gt;Fair Use&lt;/a&gt; doctrine.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
                 Quotes can be added to pages or assignments using an HTML <code>blockquote</code>. If you would like to visually specify an author or source for your quote add the <code>cite</code> tag below your quote but inside the <code>blockquote</code>. Visual citations may be optional depending on how you referenced the quote but you should add a link to the original source in the <code>blockquote</code>'s inline cite line. See the simplified code example below:
             </p>
             <blockquote cite="https://example.com">
@@ -152,10 +170,11 @@ $title       = 'BYUI CIT Course Material';
         &lt;/p&gt;
     &lt;/li&gt;
 &lt;/ol&gt;
+</code>
 </pre>      
             <hr>
             <p>
-                You can also use traditional <code>ul<code> (unordered lists). The following is an example of an unordered list followed by the HTML to create this element.
+                You can also use traditional <code>ul</code> (unordered lists). The following is an example of an unordered list followed by the HTML to create this element.
             </p>
             <ul>
                 <li>
@@ -237,7 +256,7 @@ $title       = 'BYUI CIT Course Material';
 </pre>      
             <hr>
             <p>
-                The following example is used to demonstrate what nested lists will look like. The code for this demo is also below:
+                The following example is used to demonstrate what nested lists will look like. You can nest any type of list inside any other type. The code for this demo is also below:
             </p>
             <ol>
                 <li>
@@ -346,7 +365,7 @@ $title       = 'BYUI CIT Course Material';
             <p>
                 Throughout this style guide we have used several HTML code examples. Code examples can be added to any page or assignment using the code below. Please keep the following in mind:
             </p>
-            <ul>
+            <ul class="smaller indent">
                 <li>
                     We support only the languages in the common package of <a href="https://highlightjs.org/download/">Highlight JS</a>.
                 </li>
