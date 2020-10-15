@@ -131,7 +131,7 @@ function compile_release() {
     }
 
     // Loop through course directory and keep only the file types we want.
-    $limit = [ 'html' ];
+    $limit = [ 'html', 'css', 'zip', '7z', 'png', 'jpg', 'jpeg' ];
     recurse_copy( 'courses', 'release', $limit );
     
 }
