@@ -30,12 +30,30 @@ var JS = ( function() {
 
     };
 
-    var attachcollapsible = function() {
+    var attachCollapsible = function() {
 
         var collapsibles = document.querySelectorAll( '.collapsible' );
 
         collapsibles.forEach( function( collapsible ){
             collapsible.addEventListener( 'click', toggleCollapsible );
+        } );
+
+    };
+
+    var convertVideoLinks = function() {
+
+        var videos = document.querySelectorAll( '[data-video]' );
+
+        videos.forEach( function( video ) {
+            var type = video.dataset.video
+            if ( type ) {
+                type = type.trim();
+                switch ( type.toUpperCase() ) {
+                    case 'YOUTUBE':
+                        processVideo( 'YOUTUBE', video );
+                        break;
+                }
+            }
         } );
 
     };
@@ -70,11 +88,50 @@ var JS = ( function() {
             scrollToAnchor();
         }, 500 );
 
-        attachcollapsible();
+        attachCollapsible();
+
+        convertVideoLinks();
 
         // Initialize Highlight.js to format all code examples on the page.
         hljs.initHighlightingOnLoad();
 
+    };
+
+    var processVideo = function( type, link ) {
+
+        switch ( type ) {
+            case 'YOUTUBE':
+                // Get the video source or bail.
+                var src = link.href;
+                if ( src ) {
+                    src = src.substring( src.lastIndexOf( '/' ) + 1 );
+                    if ( src.length < 5 ) {
+                        return;
+                    }
+                }
+                // Build the iframe.
+                var frame = document.createElement( 'IFRAME' );
+                frame.setAttribute( 'allowFullScreen', '' );
+                frame.setAttribute( 'allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' );
+                frame.setAttribute( 'frameborder', '0' );
+                frame.setAttribute( 'src', 'https://www.youtube-nocookie.com/embed/' + src );
+                // Make a new link.
+                var a = document.createElement( 'A' );
+                a.setAttribute( 'href', link.href );
+                a.setAttribute( 'target', '_blank' );
+                // Make the fallback link div and add it after the existing link.
+                var fallback = document.createElement( 'DIV' );
+                fallback.classList.add( 'video-fallback' );
+                fallback.innerHTML = '&mdash;&nbsp;&nbsp;<a href="' + link.href + '" target="_blank">&#x2139;&nbsp;&nbsp;' + link.innerHTML + '</a>';
+                fallback.appendChild( a );
+                link.parentElement.insertBefore( fallback, link.nextSibling );
+                // Swap out the link and replace with the video and fallback divs.
+                var html = document.createElement( 'DIV' );
+                html.classList.add( 'video' );
+                html.appendChild( frame );
+                link.parentElement.replaceChild( html, link );
+                break;
+        }
     };
 
     var scrollToAnchor = function() {

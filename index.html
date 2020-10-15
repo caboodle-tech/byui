@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>BYUI CIT Course Material</title>
     <meta name="keywords" content="BYUI, CIT, Course Material, Homework, Assignments, Directroy">
     <meta name="description" content="This is the main website for Brother Keers' course materials.">
     <meta name="author" content="Christopher Keers">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BYUI CIT Course Material</title>
     <script src="js/highlight.min.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
@@ -384,6 +384,17 @@
 &lt;code class="lang-html"&gt;Your code inside here. This demo uses HTML.
 &lt;/code&gt;
 &lt;/pre&gt;
+</code>
+</pre>
+            <hr>
+            <p>
+                You can also easily include videos into your pages or assignments. We use JavaScript to automatically generate the HTML for this to work since the HTML can be rather complex. All you need to add is a link to the video that includes a <code>data</code> attribute of video and a value of the video hosting service. Currently we only support YouTube. The video you see below is made with the code following it. <strong>NOTE:</strong> Do not place video links like the one below inside <code>p</code> (paragraph) tags. They should be treated like a <code>div</code> tag.
+            </p>
+            <a href="https://youtu.be/NpEaa2P7qZI" target="_blank" data-video="YouTube">Video Placeholder</a>
+<pre class="lang-html">
+<code class="lang-html">&lt;href="https://video-source.com" target="_blank" data-video="YouTube"&gt;
+    Title of the video / video information.
+&lt;/a&gt;
 </code>
 </pre>
         </main>
