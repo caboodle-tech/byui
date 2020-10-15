@@ -45,6 +45,11 @@ body {
 #page p {
   margin: 20px 0;
 }
+#page p code {
+  display: inline;
+  color: #b58900;
+  font-weight: bold;
+}
 #page a {
   text-decoration: none;
   cursor: pointer;
@@ -103,6 +108,23 @@ body {
 }
 #page main a:hover {
   color: #005f92;
+}
+#page main figure {
+  display: block;
+  margin: 20px auto;
+}
+#page main figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+}
+#page main figure figcaption {
+  text-align: center;
+  margin: 10px 0 0 0;
 }
 #page main blockquote {
   position: relative;
@@ -488,6 +510,18 @@ body {
   }
   #page footer .cc-img {
     margin: 0 0 0 40px;
+  }
+}
+@media (min-width: 1024px) {
+  #page main figure.left {
+    float: left;
+    margin: 20px 30px 20px 0;
+    max-width: 50%;
+  }
+  #page main figure.right {
+    float: right;
+    margin: 20px 0 20px 30px;
+    max-width: 50%;
   }
 }
 @media (min-width: 1200px) {

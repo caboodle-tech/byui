@@ -58,6 +58,12 @@ body {
 
     p {
         margin: @spacing 0;
+
+        code {
+            display: inline;
+            color: @inline-code-color;
+            font-weight: bold;
+        }
     }
 
     a {
@@ -127,6 +133,25 @@ body {
             &:hover {
                 color: darken( @link-color, 7% );
             }
+        }
+
+        figure {
+            display: block;
+            margin: @spacing auto;
+
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: 0 auto;
+                .drop-shadow();
+            }
+
+            figcaption {
+                text-align: center;
+                margin: @spacing / 2 0 0 0;
+            }
+
         }
 
         blockquote {
@@ -385,6 +410,28 @@ body {
     
             .cc-img {
                 margin: 0 0 0 @spacing * 2;
+            }
+        }
+    }
+
+    @media ( min-width: 1024px ) {
+
+        main {
+
+            figure {
+                
+                &.left {
+                    float: left;
+                    margin: @spacing @spacing * 1.5 @spacing 0;
+                    max-width: 50%;
+                }
+
+                &.right {
+                    float: right;
+                    margin: @spacing 0 @spacing @spacing * 1.5;
+                    max-width: 50%;
+                }
+
             }
         }
     }
