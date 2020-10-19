@@ -50,7 +50,6 @@ ol {
             font-weight: bold;
             font-size: @font-size * 2.5;
             line-height: 1rem;
-            font-family: "Lucida Console", Monaco, monospace;
         }
 
         &:nth-child(-n + 9):before {
@@ -115,6 +114,13 @@ ol {
             &:before {
                 font-size: @font-size;
                 margin-top: -6px;
+            }
+
+            ol, ul {
+            
+                li {
+                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
+                }
             }
         }
     }
@@ -207,6 +213,13 @@ ul {
             &:before {
                 font-size: @font-size;
                 margin-top: -6px;
+            }
+
+            ol, ul {
+            
+                li {
+                    margin: 0.5rem 0 0.5rem @spacing * 1.5;
+                }
             }
         }
     }
