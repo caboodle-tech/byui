@@ -216,7 +216,6 @@ body {
   font-weight: bold;
   font-size: 3rem;
   line-height: 1rem;
-  font-family: "Lucida Console", Monaco, monospace;
 }
 #page main ol > li:nth-child(-n + 9):before {
   content: '0' counter(custom-counter);
@@ -319,6 +318,9 @@ body {
 #page main ul.smaller li:before {
   font-size: 1.2rem;
   margin-top: -6px;
+}
+#page main ul.smaller li ul li {
+  margin: 0.5rem 0 0.5rem 30px;
 }
 #page main ul.indent li {
   margin: 0.5rem 0 0.5rem 40px;
