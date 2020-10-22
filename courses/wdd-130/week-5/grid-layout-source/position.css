@@ -133,7 +133,7 @@
     background-color: green; 
 } 
 
-#content-2  .yellow {
+#content-2 .yellow {
     width: 100px; 
     height: 100px; 
     background-color: gold; 
@@ -157,7 +157,7 @@
  * 
  */
 
- #content-3 {
+#content-3 {
     
 }
 
@@ -173,7 +173,7 @@
     background-color: green; 
 } 
 
-#content-3  .yellow {
+#content-3 .yellow {
     width: 100px; 
     height: 100px; 
     background-color: gold; 
@@ -207,7 +207,7 @@
     background-color: red; 
 } 
 
-#content-4  .green {
+#content-4 .green {
     width: 100px; 
     height: 100px; 
     background-color: green; 
@@ -219,7 +219,7 @@
     background-color: gold; 
 } 
 
-#content-4  .blue {
+#content-4 .blue {
     width: 100px; 
     height: 100px; 
     background-color: blue; 
