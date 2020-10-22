@@ -1,3 +1,2 @@
-*.html
 release/*
 !release/.gitkeep
