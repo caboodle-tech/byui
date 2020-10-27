@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="BYUI, CIT, Course Material, Homework, Assignments, Directroy">
+    <meta name="description" content="This is the main website for Brother Keers' course materials.">
+    <meta name="author" content="Christopher Keers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BYUI CIT Course Material</title>
+    <script src="js/highlight.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/highlight.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="page">
+        <header>
+            <div id="course-title">
+                Computer Information Technology
+            </div>
+            <div id="course-code">
+                BYUI
+            </div>
+        </header>
+        <main>
+            <h1>Main Directory</h1>
+            <p>
+                This is the main website for Brother Keers' course materials. You can find the source code for this website in this GitHub repository. If you are looking for a specific course they are listed below. If you are looking for a specific course and it is missing from this list, you may be searching for a course taught by a different professor or another department and Brigham Young University Idaho. You will need to reach out to your professor for assistance.
+            </p>
+            <h2>Courses</h2>
+            <ul>
+                <li>
+                    <h2><a href="courses/wdd-130/index.html">Web Fundamentals (WDD 130)</a></h2>
+                    <p>This course introduces students to the Word Wide Web and to careers in web design and development. The course is hand on with students participating in simple web designs and programming. Students are also introduced to version control tools using git and GitHub, wire framing, and other design related tools. It is anticipated that students who complete this course will understand the fields of wed design and development, have an understanding of the various industry roles, and have a good idea if they want to pursue this degree as a major.</p>
+                </li>
+            </ul>
+            <h2>Style Guide</h2>
+<div id="go-back">
+    <a href="#go-back">&#10554; Go Back</a>
+</div>
+            <p>
+                &nbsp;
+                <!-- Add needed space for the go back demo. -->
+            </p>
+            <p>
+                You should use the back link on pages or assignments where it makes sense to aid the users navigation between content. If you have a page or assignment you wish to leave detached from everything else please leave this off. Notice that we only use relative navigation in this link (<code>../</code>). You will need to add the following code between the pages <code>header</code> and <code>main</code> section: 
+            </p>
+<pre>
+<code>&lt;div id="go-back"&gt;
+    &lt;a href="../"&gt;&amp;#10554; Go Back&lt;/a&gt;
+&lt;/div&gt;
+</code>
+</pre>  
+            <hr>
+            <p>
+                Callouts are used to call attention to some important information. This should be used when instructors or students need to pay careful attention to something.
+            </p>
+            <div class="callout">
+                <h2>Callouts:</h2>
+                <p>
+                    Callouts are used to call attention to some important information. This should be used when instructors or students need to pay careful attention to something. Below is the HTML code for this element:
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="callout"&gt;
+    &lt;h2&gt;Title Here:&lt;/h2&gt;
+    &lt;p&gt;
+        Content here.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
+                A rubric specific callout is used to highlight the assignments grading requirements and is usually placed at the end of an assignment. These style callouts can be used as part of assignment steps to highlight specific criteria a student or instructor should look for at that step.
+            </p>
+            <div class="rubric">
+                <h4><strong>Rubric:</strong></h4>
+                <p>
+                    A rubric specific callout is used to highlight the assignments grading requirements and is usually placed at the end of an assignment. These style callouts can be used as part of assignment steps to highlight specific criteria a student or instructor should look for at that step. Below is the HTML code for this element:
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="rubric"&gt;
+    &lt;h2&gt;Title Here:&lt;/h2&gt;
+    &lt;p&gt;
+        Content here.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
+                A license specific callout is used to notify the reader that the previous or following content is under some alternative or additional license. Most times this is a reminder that copyrighted material has been incorporated in a fair use manner for educational use. You should not need to add this for every piece of content but it is advisable to add this when a copyright holder has not given express permission or a strict license is attached to the original content.
+            </p>
+            <div class="license">
+                <p>
+                    The above or following content is licensed as _____ by _____. All rights are reserved. Used with permission. Used according to fair use for educational purposes.
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;div class="license"&gt;
+    &lt;p&gt;
+        Additional license or notice explanation here...
+        ...for educational use under the &lt;a href="https://en.wikipedia.org/wiki/Fair_use"&gt;Fair Use&lt;/a&gt; doctrine.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
+                Quotes can be added to pages or assignments using an HTML <code>blockquote</code>. If you would like to visually specify an author or source for your quote add the <code>cite</code> tag below your quote but inside the <code>blockquote</code>. Visual citations may be optional depending on how you referenced the quote but you should add a link to the original source in the <code>blockquote</code>'s inline cite line. See the simplified code example below:
+            </p>
+            <blockquote cite="https://example.com">
+                <p>
+                    If future generations are to remember us more with gratitude than sorrow, we must achieve more than just the miracles of technology. We must also leave them a glimpse of the world as it was created, not just as it looked when we got through with it
+                </p>
+                <cite>
+                    Lyndon B. Johnson
+                </cite>
+            </blockquote>
+<pre class="lang-html">
+<code class="lang-html">&lt;blockquote cite="https://link-to-source.com"&gt;
+    &lt;p&gt;
+        Your quote here.
+    &lt;/p&gt;
+    &lt;cite&gt;
+        Author Here (Optional)
+    &lt;/cite&gt;
+&lt;/blockquote&gt;
+</code>
+</pre>  
+            <hr>
+            <p>
+                Assignments should be organized inside an <code>ol</code> (ordered list). Below is an example of what this looks like followed by the HTML code for this element. Please note that this website runs a JavaScript function to automatically create an anchor (id) for each step if you used the correct HTML format. These anchors are nice when communicating with students and instructors because you can provide a direct link to the content in question. These links can change if you update the amount of steps in an assignment so they should only be used short term.
+            </p>
+            <ol>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+                <li>
+                    <h2>Step Title</h2>
+                    <p>
+                        The instructions for this step.
+                    </p>
+                </li>
+            </ol>
+<pre class="lang-html">
+<code class="lang-html">&lt;ol&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step Title&lt;/h2&gt;
+        &lt;p&gt;
+            The instructions for this step.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
+                You can also use traditional <code>ul</code> (unordered lists). The following is an example of an unordered list followed by the HTML to create this element.
+            </p>
+            <ul>
+                <li>
+                    <h2>Item 1</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+                <li>
+                    <h2>Item 2</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+                <li>
+                    <h2>Item 3</h2>
+                    <p>
+                        Content for this item.
+                    </p>
+                </li>
+            </ul>
+<pre class="lang-html">
+<code class="lang-html">&lt;ul&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 1&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 2&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Item 3&lt;/h2&gt;
+        &lt;p&gt;
+            Content for this item.
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+            <hr>
+            <p>
+                Definition lists can be added to provide a list of vocabulary or important terms and their definitions or explanations. The definition list can also be used to link out to an resource and provide an explanation of what that resource is. The HTML code below shows one term being defined and one additional resource being linked to:
+            </p>
+            <dl>
+                <dt>
+                    Term
+                </dt>
+                <dd>
+                    Term definition.
+                </dd>
+                <dt>
+                    <a href="#enter-url-here" target="_blank">Linked Term</a>
+                </dt>
+                <dd>
+                    Resource definition.
+                </dd>
+            </dl>
+<pre class="lang-html">
+<code class="lang-html">&lt;dl&gt;
+    &lt;dt&gt;
+        Term
+    &lt;/dt&gt;
+    &lt;dd&gt;
+        Term definition.
+    &lt;/dd&gt;
+    &lt;dt&gt;
+        &lt;a href="#enter-url-here" target="_blank"&gt;Linked Term&lt;/a&gt;
+    &lt;/dt&gt;
+    &lt;dd&gt;
+        Resource definition.
+    &lt;/dd&gt;
+&lt;/dl&gt;
+</code>
+</pre>      
+            <hr>
+            <p>
+                The following example is used to demonstrate what nested lists will look like. You can nest any type of list inside any other type. The code for this demo is also below:
+            </p>
+            <ol>
+                <li>
+                    <h2>Step 1</h2>
+                    <p>
+                        This step has an unordered list of instructions:
+                        <ul>
+                            <li>
+                                <p>
+                                    Do this...
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    ...and do this.
+                                </p>
+                            </li>
+                        </ul>
+                    </p>
+                </li>
+                <li>
+                    <h2>Step 2</h2>
+                    <p>
+                        This step has an ordered list of instructions:
+                        <ol>
+                            <li>
+                                <p>
+                                    Do this first.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Do this second.
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </li>
+            </ol>
+<pre class="lang-html">
+<code class="lang-html">&lt;ol&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step 1&lt;/h2&gt;
+        &lt;p&gt;
+            This step has an unordered list of instructions:
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this...
+                    &lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        ...and do this.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;h2&gt;Step 2&lt;/h2&gt;
+        &lt;p&gt;
+            This step has an ordered list of instructions:
+            &lt;ol&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this first.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;p&gt;
+                        Do this second.
+                    &lt;/p&gt;
+                &lt;/li&gt;
+            &lt;/ol&gt;
+        &lt;/p&gt;
+    &lt;/li&gt;
+&lt;/ol&gt;
+</code>
+</pre>
+            <hr>
+            <p>
+                You can also have sections of collapsible content. This content by default starts collapsed and requires a user to click on the title bar to expand it. To open a collapsible section by default add <code>open</code> to the buttons class. The HTML for this element is below the following example:
+            </p>
+            <button type="button" class="collapsible">Collapsible Section</button>
+            <div class="collapsible-content">
+                <p>
+                    Collapsible content. Remember you can add the class of <code>open</code> to the button class and it will start opened.
+                </p>
+            </div>
+<pre class="lang-html">
+<code class="lang-html">&lt;button type="button" class="collapsible"&gt;Title&lt;/button&gt;
+&lt;div class="collapsible-content"&gt;
+    &lt;p&gt;
+        The hidden collapsible content.
+    &lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+            <hr>
+            <p>
+                Throughout this style guide we have been using horizontal rules (<code>hr</code>) to divide sections. The code for that is below:
+            </p>
+<pre class="lang-html"><code class="lang-html">&lt;hr&gt;</code></pre>
+            <hr>
+            <p>
+                Throughout this style guide we have used several HTML code examples. Code examples can be added to any page or assignment using the code below. Please keep the following in mind:
+            </p>
+            <ul class="smaller indent">
+                <li>
+                    We support only the languages in the common package of <a href="https://highlightjs.org/download/">Highlight JS</a>.
+                </li>
+                <li>
+                    You need to change the <code>lang</code> (language) attribute to match the language of your code; again it must be in the supported list.
+                </li>
+            </ul>
+<pre class="lang-html">
+<code class="lang-html">&lt;pre class="lang-html"&gt;
+&lt;code class="lang-html"&gt;Your code inside here. This demo uses HTML.
+&lt;/code&gt;
+&lt;/pre&gt;
+</code>
+</pre>
+            <hr>
+            <p>
+                You can also easily include videos into your pages or assignments. We use JavaScript to automatically generate the HTML for this to work since the HTML can be rather complex. All you need to add is a link to the video that includes a <code>data</code> attribute of video and a value of the video hosting service. Currently we only support YouTube. The video you see below is made with the code following it. <strong>NOTE:</strong> Do not place video links like the one below inside <code>p</code> (paragraph) tags. They should be treated like a <code>div</code> tag.
+            </p>
+            <a href="https://youtu.be/NpEaa2P7qZI" target="_blank" data-video="YouTube">Video Placeholder</a>
+<pre class="lang-html">
+<code class="lang-html">&lt;href="https://video-source.com" target="_blank" data-video="YouTube"&gt;
+    Title of the video / video information.
+&lt;/a&gt;
+</code>
+</pre>
+        </main>
+<footer>
+    <!-- BYUI -->
+    <a rel="author" href="https://www.byui.edu/computer-information-technology" target="_blank"><img alt="Creative Commons License" class="byui-img" src="assets/byui-logo.jpg"></a>
+    <!-- CC BY-NC-SA -->
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="Creative Commons License" class="cc-img" src="assets/CC-BY-NC-SA.svg.png"></a>
+    <!-- Legal text -->
+    <span class="line-break"></span>
+    This work was created by the Computer Information Technology Department at Brigham Young University Idaho and is licensed under a <a rel="license" href="https://github.com/caboodle-tech/byui/blob/main/LICENSE-CC-BY-NC-SA" target="_blank">Creative Commons BY-NC-SA 4.0 License</a> unless noted otherwise. The source code for this website is licensed under the <a rel="license" href="https://github.com/caboodle-tech/byui/blob/main/LICENSE" target="_blank">MIT License</a> unless noted otherwise.
+</footer>
+    </div>
+</body>
+</html>
